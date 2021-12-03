@@ -1,0 +1,44 @@
+{
+    "name": "mikey-be-like/backpack-intl-tel-input",
+    "description": "A backpack field package for formatting and inputting international telephone numbers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Olukoya",
+            "email": "hi@mikey.dev",
+            "homepage": "https://mikey.dev"
+        }
+    ],
+    "homepage": "https://github.com/mikey-be-like/backpack-intl-tel-input",
+    "keywords": [
+        "Laravel", "Backpack", "Backpack for Laravel", "Backpack Addon", "BackpackIntlTelInput"
+    ],
+    "require": {
+        "illuminate/support": "~7|~8",
+        "backpack/crud": "^4.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~5|~6"
+    },
+    "autoload": {
+        "psr-4": {
+            "MikeyBeLike\\BackpackIntlTelInput\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MikeyBeLike\\BackpackIntlTelInput\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MikeyBeLike\\BackpackIntlTelInput\\AddonServiceProvider"
+            ]
+        }
+    }
+}
