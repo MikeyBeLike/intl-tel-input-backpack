@@ -8,7 +8,7 @@ class AddonServiceProvider extends ServiceProvider
 {
     use AutomaticServiceProvider;
 
-    protected $vendorName = 'mikey-be-like';
-    protected $packageName = 'backpack-intl-tel-input';
+    protected $vendorName = 'mikeybelike';
+    protected $packageName = 'intl-tel-input-backpack';
     protected $commands = [];
 }

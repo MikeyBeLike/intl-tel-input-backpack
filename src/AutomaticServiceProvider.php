@@ -14,7 +14,7 @@ trait AutomaticServiceProvider
     public function __construct($app)
     {
         $this->app = $app;
-        $this->path = __DIR__.'/..';
+        $this->path = __DIR__ . '/..';
     }
 
     /**
@@ -30,29 +30,30 @@ trait AutomaticServiceProvider
      */
     public function boot(): void
     {
-        if ($this->packageDirectoryExistsAndIsNotEmpty('bootstrap') &&
-            file_exists($helpers = $this->packageHelpersFile())) { 
+        if (
+            $this->packageDirectoryExistsAndIsNotEmpty('bootstrap') &&
+            file_exists($helpers = $this->packageHelpersFile())
+        ) {
             require $helpers;
         }
-        
+
         if ($this->packageDirectoryExistsAndIsNotEmpty('resources/lang')) {
             $this->loadTranslationsFrom($this->packageLangsPath(), $this->vendorNameDotPackageName());
         }
-        
+
         if ($this->packageDirectoryExistsAndIsNotEmpty('resources/views')) {
             // Load published views
             $this->loadViewsFrom($this->publishedViewsPath(), $this->vendorNameDotPackageName());
 
-            // Fallback to package views
             $this->loadViewsFrom($this->packageViewsPath(), $this->vendorNameDotPackageName());
         }
 
         if ($this->packageDirectoryExistsAndIsNotEmpty('database/migrations')) {
             $this->loadMigrationsFrom($this->packageMigrationsPath());
         }
-        
+
         if ($this->packageDirectoryExistsAndIsNotEmpty('routes')) {
-            $this->loadRoutesFrom($this->packageRoutesFile());   
+            $this->loadRoutesFrom($this->packageRoutesFile());
         }
 
         // Publishing is only necessary when using the CLI.
@@ -122,64 +123,75 @@ trait AutomaticServiceProvider
 
     protected function vendorNameDotPackageName()
     {
-        return $this->vendorName.'.'.$this->packageName;
+        return $this->vendorName . '.' . $this->packageName;
     }
 
     protected function vendorNameSlashPackageName()
     {
-        return $this->vendorName.'/'.$this->packageName;
+        return $this->vendorName . '/' . $this->packageName;
     }
 
     // -------------
     // Package paths
     // -------------
-    
-    protected function packageViewsPath() {
-        return $this->path.'/resources/views';
+
+    protected function packageViewsPath()
+    {
+        return $this->path . '/resources/views';
     }
 
-    protected function packageLangsPath() {
-        return $this->path.'/resources/lang';
+    protected function packageLangsPath()
+    {
+        return $this->path . '/resources/lang';
     }
 
-    protected function packageAssetsPath() {
-        return $this->path.'/resources/assets';
+    protected function packageAssetsPath()
+    {
+        return $this->path . '/resources/assets';
     }
 
-    protected function packageMigrationsPath() {
-        return $this->path.'/database/migrations';
+    protected function packageMigrationsPath()
+    {
+        return $this->path . '/database/migrations';
     }
 
-    protected function packageConfigFile() {
-        return $this->path.'/config/'.$this->packageName.'.php';
+    protected function packageConfigFile()
+    {
+        return $this->path . '/config/' . $this->packageName . '.php';
     }
 
-    protected function packageRoutesFile() {
-        return $this->path.'/routes/'.$this->packageName.'.php';
+    protected function packageRoutesFile()
+    {
+        return $this->path . '/routes/' . $this->packageName . '.php';
     }
 
-    protected function packageHelpersFile() {
-        return $this->path.'/bootstrap/helpers.php';
+    protected function packageHelpersFile()
+    {
+        return $this->path . '/bootstrap/helpers.php';
     }
 
     // ---------------
     // Published paths
     // ---------------
-    
-    protected function publishedViewsPath() {
-        return base_path('resources/views/vendor/'.$this->vendorName.'/'.$this->packageName);
+
+    protected function publishedViewsPath()
+    {
+        return base_path('resources/views/vendor/' . $this->vendorName . '/' . $this->packageName);
     }
 
-    protected function publishedConfigFile() {
-        return config_path($this->vendorNameSlashPackageName().'.php');
+    protected function publishedConfigFile()
+    {
+        return config_path($this->vendorNameSlashPackageName() . '.php');
     }
 
-    protected function publishedAssetsPath() {
-        return public_path('vendor/'.$this->vendorNameSlashPackageName());
-    } 
+    protected function publishedAssetsPath()
+    {
+        return public_path('vendor/' . $this->vendorNameSlashPackageName());
+    }
 
-    protected function publishedLangsPath() {
-        return resource_path('lang/vendor/'.$this->vendorName);
+    protected function publishedLangsPath()
+    {
+        return resource_path('lang/vendor/' . $this->vendorName);
     }
 
     // -------------
@@ -189,12 +201,12 @@ trait AutomaticServiceProvider
     protected function packageDirectoryExistsAndIsNotEmpty($name)
     {
         // check if directory exists
-        if (!is_dir($this->path.'/'.$name)) {
+        if (!is_dir($this->path . '/' . $name)) {
             return false;
         }
 
         // check if directory has files
-        foreach (scandir($this->path.'/'.$name) as $file) {
+        foreach (scandir($this->path . '/' . $name) as $file) {
             if ($file != '.' && $file != '..' && $file != '.gitkeep') {
                 return true;
             }

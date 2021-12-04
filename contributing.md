@@ -1,9 +1,9 @@
 # Contributing
 
 Contributions are welcome and will be fully credited:
-- code contributions are accepted via Pull Requests to [this Github repo](https://github.com/mikey-be-like/backpack-intl-tel-input);
+- code contributions are accepted via Pull Requests to [this Github repo](https://github.com/mikeybelike/intl-tel-input-backpack);
 - financial contributions are usually in the form of [donations](), [projects]() or [jobs](); 
-- documentation contributions are accepted via Pull Requests to [this Github repo](https://github.com/mikey-be-like/backpack-intl-tel-input);
+- documentation contributions are accepted via Pull Requests to [this Github repo](https://github.com/mikeybelike/intl-tel-input-backpack);
 - other contributions are most likely welcome in the way you see fit;
 
 # Things you could do

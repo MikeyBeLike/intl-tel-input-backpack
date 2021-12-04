@@ -1,5 +1,5 @@
 {
-    "name": "mikey-be-like/backpack-intl-tel-input",
+    "name": "mikeybelike/intl-tel-input-backpack",
     "description": "A backpack field package for formatting and inputting international telephone numbers",
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
             "homepage": "https://mikey.dev"
         }
     ],
-    "homepage": "https://github.com/mikey-be-like/backpack-intl-tel-input",
+    "homepage": "https://github.com/mikeybelike/intl-tel-input-backpack",
     "keywords": [
         "Laravel", "Backpack", "Backpack for Laravel", "Backpack Addon", "BackpackIntlTelInput"
     ],
