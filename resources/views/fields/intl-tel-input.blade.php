@@ -48,7 +48,7 @@
                 const options = JSON.parse(inputEle.dataset.options)
                 window.intlTelInput(inputEle, {
                   utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.min.js',
-                  initialCountry: options.initialCountry
+                  ...options
                 });
             }
         </script>
