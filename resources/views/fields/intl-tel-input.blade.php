@@ -9,7 +9,7 @@
     <label>{!! $field['label'] !!}</label>
     <input
         type="tel"
-        name="{{ $field['name'] }}"
+        name="{{ $field['name'] }}_input"
         value="{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }}"
         data-init-function="bpFieldInitIntlTelInputElement"
         @include('crud::fields.inc.attributes')
@@ -48,7 +48,8 @@
                 const options = JSON.parse(inputEle.dataset.options)
                 window.intlTelInput(inputEle, {
                   utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.min.js',
-                  ...options
+                  ...options,
+                  hiddenInput: @json($field['name']),
                 });
             }
         </script>
